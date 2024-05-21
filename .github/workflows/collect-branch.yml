@@ -1,4 +1,4 @@
-name: Nexus IB Collector (Branch)
+name: ${{ vars.COLLECTOR }} Collector (Branch)
 run-name: ${{ github.actor }} is Collecting 🚀
 on:
   push:
