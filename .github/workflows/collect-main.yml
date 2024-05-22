@@ -1,4 +1,4 @@
-name: ${{ vars.COLLECTOR }} Collector
+name: Atlassian Bitbucket IB Collector
 run-name: ${{ github.actor }} is Collecting 🚀
 on:
   push:
