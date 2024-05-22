@@ -10,3 +10,6 @@
 [submodule "bamboo-lts-ib"]
 	path = bamboo-lts-ib
 	url = https://repo1.dso.mil/dsop/atlassian/bamboo-data-center/bamboo-lts.git
+[submodule "fisheye-crucible-ib"]
+	path = fisheye-crucible-ib
+	url = https://repo1.dso.mil/dsop/atlassian/fisheye-crucible.git
