@@ -2,5 +2,3 @@ registry1.dso.mil:
     images-by-tag-regex:
         ironbank/atlassian/bitbucket-data-center/bitbucket-node-lts: ^8.19.2$
         ironbank/atlassian/bamboo-data-center/bamboo-server-lts: ^9.6.8$
-        ironbank/elastic/elasticsearch/elasticsearch: ^7.17.6
-        ironbank/afrl-dcgs/stream/opensearch-project/opensearch: ^2.18.0
