@@ -1,4 +1,4 @@
 registry1.dso.mil:
     images-by-tag-regex:
-        ironbank/atlassian/bitbucket-data-center/bitbucket-node-lts: ^8.19.2$
+        ironbank/atlassian/bitbucket-data-center/bitbucket-node-lts: ^8.19.12$
         ironbank/atlassian/bamboo-data-center/bamboo-server-lts: ^9.6.8$
