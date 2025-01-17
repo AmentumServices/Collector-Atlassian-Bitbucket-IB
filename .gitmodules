@@ -1,12 +1,3 @@
-[submodule "bitbucket-ib"]
-	path = bitbucket-ib
-	url = https://repo1.dso.mil/dsop/atlassian/bitbucket-data-center/bitbucket.git
 [submodule "bitbucket-lts-ib"]
 	path = bitbucket-lts-ib
 	url = https://repo1.dso.mil/dsop/atlassian/bitbucket-data-center/bitbucket-lts.git
-[submodule "bamboo-ib"]
-	path = bamboo-ib
-	url = https://repo1.dso.mil/dsop/atlassian/bamboo-data-center/bamboo.git
-[submodule "bamboo-lts-ib"]
-	path = bamboo-lts-ib
-	url = https://repo1.dso.mil/dsop/atlassian/bamboo-data-center/bamboo-lts.git
