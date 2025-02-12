@@ -8,7 +8,7 @@ on:
 
 jobs:
   Date:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     outputs:
       Date: ${{ steps.date.outputs.date }}
     steps:
@@ -23,7 +23,7 @@ jobs:
 
   Skopeo:
     needs: [Date]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
@@ -65,7 +65,7 @@ jobs:
             ${{ vars.COLLECTOR }}-${{ needs.Date.outputs.Date }}.tgz.sha
  
       - name: List files 
-        run: ls -Alh ${{ vars.COLLECTOR }}-${{ needs.Date.outputs.Date }}.tgz*
+        run: ls -Alht ${{ vars.COLLECTOR }}-${{ needs.Date.outputs.Date }}.tgz*
 
       - name: Upload TARchive
         uses: actions/upload-artifact@v4
@@ -87,10 +87,13 @@ jobs:
 
   Code:
     needs: [Date]
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
+        with:
+          submodules: true
+          lfs: true
 
       - name: Setup Git
         run: |
@@ -124,7 +127,7 @@ jobs:
           path: ${{ vars.COLLECTOR }}-${{ needs.Date.outputs.Date }}.bundle.sha
 
   Hash:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: [Date, Code, Skopeo]
     env:
       GH_TOKEN: ${{ github.token }}
@@ -146,7 +149,7 @@ jobs:
           merge-multiple: true
 
       - name: Show Artifacts
-        run: ls -Alh ${{ vars.COLLECTOR }}-*.*
+        run: ls -Alht ${{ vars.COLLECTOR }}-*.*
 
       - name: Generate Artifact Hash File
         run: |
@@ -160,7 +163,7 @@ jobs:
           path: ${{ vars.COLLECTOR }}-${{ needs.Date.outputs.Date }}.sha
 
   Release:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: [Date, Hash]
     permissions:
       contents: write
@@ -175,10 +178,10 @@ jobs:
           merge-multiple: true
 
       - name: Show Artifacts
-        run: ls -Alh ${{ vars.COLLECTOR }}-*.*
+        run: ls -Alht ${{ vars.COLLECTOR }}-*.*
 
   Sharepoint:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: [Date, Hash]
     permissions:
       contents: write
@@ -190,4 +193,4 @@ jobs:
           merge-multiple: true
 
       - name: Show Artifacts
-        run: ls -Alh ${{ vars.COLLECTOR }}-*.*
+        run: ls -Alht ${{ vars.COLLECTOR }}-*.*
